@@ -2,6 +2,7 @@ package com.autoqa.pages;
 
 import com.autoqa.base.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ProductDetailPage extends BasePage {
 
@@ -38,5 +39,8 @@ public class ProductDetailPage extends BasePage {
     }
     public void clickAddToCart() {
         click(addToCartButton);
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(text(),'Continue Shopping')]"))).click();
+        } catch (Exception e) { }
     }
 }

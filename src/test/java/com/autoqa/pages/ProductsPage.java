@@ -2,6 +2,7 @@ package com.autoqa.pages;
 
 import com.autoqa.base.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import java.util.List;
 
@@ -44,8 +45,9 @@ public class ProductsPage extends BasePage {
     }
 
     public ProductDetailPage clickViewProduct(int index) {
-        List<WebElement> products = driver.findElements(viewProductLinks);
-        products.get(index).click();
+        List<WebElement> products = wait.until(org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfAllElementsLocatedBy(viewProductLinks));
+        WebElement product = products.get(index);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true); arguments[0].click();", product);
         return new ProductDetailPage();
     }
 
