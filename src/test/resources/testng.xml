@@ -3,7 +3,9 @@
 <suite name="AutoQA Pro E-Commerce Test Suite">
     <test name="All Tests">
         <classes>
-            <!-- Test classes will be added by other members -->
+            <class name="com.autoqa.tests.CartTest"/>
+            <class name="com.autoqa.tests.CheckoutTest"/>
+            <class name="com.autoqa.tests.FormValidationTest"/>
         </classes>
     </test>
 </suite>
